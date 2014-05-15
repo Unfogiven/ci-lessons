@@ -42,4 +42,14 @@ class Main extends CI_Controller{
         $this->articles_model->add_article($data);
     }
 
+    public function edit_article(){
+        $data = array();
+        $data['title'] = 'Новое название пятой статьи';
+        $data['text'] = 'Текст';
+        $data['date'] = "2014-05-15 17:30:56";
+
+        $this->load->model("articles_model");
+        $this->articles_model->edit_article(5, $data);
+    }
+
 }
