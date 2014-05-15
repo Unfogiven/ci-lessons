@@ -19,7 +19,14 @@ class Main extends CI_Controller{
         $data = array();
         $this->load->model("articles_model");
 
-        $data['articles'] = $this->articles_model->get_articles();
+        $config = array();
+        $config['base_url'] = base_url().'index.php/main/articles/';
+        $config['total_rows'] = 4;
+        $config['per_page'] = 1;
+
+        $this->pagination->initialize($config);
+
+        $data['articles'] = $this->articles_model->get_articles($config['per_page'], $this->uri->segment(3));
         $this->load->view("articles_view", $data);
     }
 

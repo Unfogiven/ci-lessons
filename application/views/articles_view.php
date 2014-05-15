@@ -11,5 +11,9 @@
         <p><?=$item['text'];?></p>
         <hr />
     <?php endforeach; ?>
+    <?php
+    echo $this->pagination->create_links();
+
+    ?>
 </body>
 </html>
