@@ -17,15 +17,15 @@ class Main extends CI_Controller{
 
     public function articles(){
         $data = array();
-        $this->load->model("articles_model");
 
         $config = array();
-        $config['base_url'] = base_url().'index.php/main/articles/';
-        $config['total_rows'] = 4;
+        $config['base_url'] = base_url().'index.php/main/articles';
+        $config['total_rows'] = $this->db->count_all("articles");
         $config['per_page'] = 1;
 
         $this->pagination->initialize($config);
 
+        $this->load->model("articles_model");
         $data['articles'] = $this->articles_model->get_articles($config['per_page'], $this->uri->segment(3));
         $this->load->view("articles_view", $data);
     }

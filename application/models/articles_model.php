@@ -7,9 +7,8 @@ class Articles_model extends CI_Model{
      *
      * @return mixed
      */
-    public function get_articles($num, $offset){
-        $this->db->order_by('id', 'desc');
-        $query = $this->db->get('articles', $num, $offset);
+    public function get_articles($num = 1, $offset = 1){
+        $query = $this->db->get("articles", $num, $offset);
         return $query->result_array();
     }
 
