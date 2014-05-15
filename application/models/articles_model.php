@@ -33,4 +33,10 @@ class Articles_model extends CI_Model{
         $this->db->update("articles", $data);
     }
 
+    public function del_article($id){
+        $id = (int)$id;
+        $this->db->where("id", $id);
+        $this->db->delete("articles");
+    }
+
 }

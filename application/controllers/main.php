@@ -52,4 +52,10 @@ class Main extends CI_Controller{
         $this->articles_model->edit_article(5, $data);
     }
 
+    public function del_article($id){
+        $id = (int)$id;
+        $this->load->model('articles_model');
+        $this->articles_model->del_article($id);
+    }
+
 }
