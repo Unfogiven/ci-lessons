@@ -3,7 +3,7 @@
 class Main extends CI_Controller{
 
     public function index(){
-        echo "Главная страница сайта";
+        $this->load->view('home_view');
     }
 
 }
