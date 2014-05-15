@@ -15,4 +15,12 @@ class Main extends CI_Controller{
         $this->load->view("about_view", $data);
     }
 
+    public function articles(){
+        $data = array();
+        $this->load->model("articles_model");
+
+        $data['articles'] = $this->articles_model->get_articles();
+        $this->load->view("articles_view", $data);
+    }
+
 }
